@@ -14,14 +14,16 @@ public class CircularProgressBar : GraphicsView
     {
         _indeterminateDrawable.SetBinding(IndeterminateBarDrawable.ColorProperty, new Binding(ColorProperty.PropertyName, source: this));
         _indeterminateDrawable.SetBinding(IndeterminateBarDrawable.ThicknessProperty, new Binding(ThicknessProperty.PropertyName, source: this));
+        _indeterminateDrawable.SetBinding(IndeterminateBarDrawable.StrokeLineCapProperty, new Binding(StrokeLineCapProperty.PropertyName, source: this));
+
         _progressDrawable.SetBinding(IndeterminateBarDrawable.ColorProperty, new Binding(ColorProperty.PropertyName, source: this));
         _progressDrawable.SetBinding(IndeterminateBarDrawable.ThicknessProperty, new Binding(ThicknessProperty.PropertyName, source: this));
+        _progressDrawable.SetBinding(IndeterminateBarDrawable.StrokeLineCapProperty, new Binding(StrokeLineCapProperty.PropertyName, source: this));
 
         WidthRequest = 50d;
         HeightRequest = 50d;
 
         this.Drawable = IsIndeterminate ? _indeterminateDrawable : _progressDrawable;
-        //this.Drawable = _indeterminateDrawable;
     }
 
     #region Color
@@ -100,6 +102,22 @@ public class CircularProgressBar : GraphicsView
             typeof(bool),
             typeof(CircularProgressBar),
             false
+            );
+    #endregion
+
+    #region StrokeLineCap
+    public LineCap StrokeLineCap
+    {
+        get { return (LineCap)GetValue(StrokeLineCapProperty); }
+        set { SetValue(StrokeLineCapProperty, value); }
+    }
+
+    public static readonly BindableProperty StrokeLineCapProperty =
+        BindableProperty.Create(
+            nameof(StrokeLineCap),
+            typeof(LineCap),
+            typeof(CircularProgressBar),
+            LineCap.Round
             );
     #endregion
 
@@ -237,7 +255,7 @@ public class IndeterminateBarDrawable : BindableObject, IDrawable
 
     public virtual void Draw(ICanvas canvas, RectF dirtyRect)
     {
-        canvas.StrokeLineCap = LineCap.Round;
+        canvas.StrokeLineCap = StrokeLineCap;
 
         var width = dirtyRect.Width - Thickness;
         var height = dirtyRect.Height - Thickness;
@@ -289,6 +307,22 @@ public class IndeterminateBarDrawable : BindableObject, IDrawable
             4f
             );
     #endregion
+
+    #region StrokeLineCap
+    public LineCap StrokeLineCap
+    {
+        get { return (LineCap)GetValue(StrokeLineCapProperty); }
+        set { SetValue(StrokeLineCapProperty, value); }
+    }
+
+    public static readonly BindableProperty StrokeLineCapProperty =
+        BindableProperty.Create(
+            nameof(StrokeLineCap),
+            typeof(LineCap),
+            typeof(IndeterminateBarDrawable),
+            LineCap.Round
+            );
+    #endregion
 }
 
 public class ProgressBarDrawable : IndeterminateBarDrawable, IDrawable
@@ -300,7 +334,7 @@ public class ProgressBarDrawable : IndeterminateBarDrawable, IDrawable
 
     public override void Draw(ICanvas canvas, RectF dirtyRect)
     {
-        canvas.StrokeLineCap = LineCap.Round;
+        canvas.StrokeLineCap = StrokeLineCap;
 
         var width = dirtyRect.Width - Thickness;
         var height = dirtyRect.Height - Thickness;

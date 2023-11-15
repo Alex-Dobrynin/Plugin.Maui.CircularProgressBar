@@ -13,6 +13,7 @@ Simple platform agnostic MAUI circular progress bar
                          IsIndeterminate="True"
                          Smooth="True"
                          WidthRequest="100"
+                         StrokeLineCap="Square"
                          Color="Red" 
                          Thickness="4" />
 ```
