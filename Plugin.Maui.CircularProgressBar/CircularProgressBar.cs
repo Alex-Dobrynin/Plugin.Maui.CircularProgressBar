@@ -26,101 +26,6 @@ public class CircularProgressBar : GraphicsView
         this.Drawable = IsIndeterminate ? _indeterminateDrawable : _progressDrawable;
     }
 
-    #region Color
-    public Color Color
-    {
-        get { return (Color)GetValue(ColorProperty); }
-        set { SetValue(ColorProperty, value); }
-    }
-
-    public static readonly BindableProperty ColorProperty =
-        BindableProperty.Create(
-            nameof(Color),
-            typeof(Color),
-            typeof(CircularProgressBar),
-            Colors.Blue
-            );
-    #endregion
-
-    #region Progress
-    public double Progress
-    {
-        get { return (double)GetValue(ProgressProperty); }
-        set { SetValue(ProgressProperty, value); }
-    }
-
-    public static readonly BindableProperty ProgressProperty =
-        BindableProperty.Create(
-            nameof(Progress),
-            typeof(double),
-            typeof(CircularProgressBar)
-            );
-    #endregion
-
-    #region Thickness
-    public float Thickness
-    {
-        get { return (float)GetValue(ThicknessProperty); }
-        set { SetValue(ThicknessProperty, value); }
-    }
-
-    public static readonly BindableProperty ThicknessProperty =
-        BindableProperty.Create(
-            nameof(Thickness),
-            typeof(float),
-            typeof(CircularProgressBar),
-            4f
-            );
-    #endregion
-
-    #region Smooth
-    public bool Smooth
-    {
-        get { return (bool)GetValue(SmoothProperty); }
-        set { SetValue(SmoothProperty, value); }
-    }
-
-    public static readonly BindableProperty SmoothProperty =
-        BindableProperty.Create(
-            nameof(Smooth),
-            typeof(bool),
-            typeof(CircularProgressBar),
-            false
-            );
-    #endregion
-
-    #region IsIndeterminate
-    public bool IsIndeterminate
-    {
-        get { return (bool)GetValue(IsIndeterminateProperty); }
-        set { SetValue(IsIndeterminateProperty, value); }
-    }
-
-    public static readonly BindableProperty IsIndeterminateProperty =
-        BindableProperty.Create(
-            nameof(IsIndeterminate),
-            typeof(bool),
-            typeof(CircularProgressBar),
-            false
-            );
-    #endregion
-
-    #region StrokeLineCap
-    public LineCap StrokeLineCap
-    {
-        get { return (LineCap)GetValue(StrokeLineCapProperty); }
-        set { SetValue(StrokeLineCapProperty, value); }
-    }
-
-    public static readonly BindableProperty StrokeLineCapProperty =
-        BindableProperty.Create(
-            nameof(StrokeLineCap),
-            typeof(LineCap),
-            typeof(CircularProgressBar),
-            LineCap.Round
-            );
-    #endregion
-
     protected override void OnPropertyChanging([CallerMemberName] string propertyName = null)
     {
         base.OnPropertyChanging(propertyName);
@@ -245,6 +150,101 @@ public class CircularProgressBar : GraphicsView
             });
         });
     }
+
+    #region Color
+    public Color Color
+    {
+        get { return (Color)GetValue(ColorProperty); }
+        set { SetValue(ColorProperty, value); }
+    }
+
+    public static readonly BindableProperty ColorProperty =
+        BindableProperty.Create(
+            nameof(Color),
+            typeof(Color),
+            typeof(CircularProgressBar),
+            Colors.Blue
+            );
+    #endregion
+
+    #region Progress
+    public double Progress
+    {
+        get { return (double)GetValue(ProgressProperty); }
+        set { SetValue(ProgressProperty, value); }
+    }
+
+    public static readonly BindableProperty ProgressProperty =
+        BindableProperty.Create(
+            nameof(Progress),
+            typeof(double),
+            typeof(CircularProgressBar)
+            );
+    #endregion
+
+    #region Thickness
+    public float Thickness
+    {
+        get { return (float)GetValue(ThicknessProperty); }
+        set { SetValue(ThicknessProperty, value); }
+    }
+
+    public static readonly BindableProperty ThicknessProperty =
+        BindableProperty.Create(
+            nameof(Thickness),
+            typeof(float),
+            typeof(CircularProgressBar),
+            4f
+            );
+    #endregion
+
+    #region Smooth
+    public bool Smooth
+    {
+        get { return (bool)GetValue(SmoothProperty); }
+        set { SetValue(SmoothProperty, value); }
+    }
+
+    public static readonly BindableProperty SmoothProperty =
+        BindableProperty.Create(
+            nameof(Smooth),
+            typeof(bool),
+            typeof(CircularProgressBar),
+            false
+            );
+    #endregion
+
+    #region IsIndeterminate
+    public bool IsIndeterminate
+    {
+        get { return (bool)GetValue(IsIndeterminateProperty); }
+        set { SetValue(IsIndeterminateProperty, value); }
+    }
+
+    public static readonly BindableProperty IsIndeterminateProperty =
+        BindableProperty.Create(
+            nameof(IsIndeterminate),
+            typeof(bool),
+            typeof(CircularProgressBar),
+            false
+            );
+    #endregion
+
+    #region StrokeLineCap
+    public LineCap StrokeLineCap
+    {
+        get { return (LineCap)GetValue(StrokeLineCapProperty); }
+        set { SetValue(StrokeLineCapProperty, value); }
+    }
+
+    public static readonly BindableProperty StrokeLineCapProperty =
+        BindableProperty.Create(
+            nameof(StrokeLineCap),
+            typeof(LineCap),
+            typeof(CircularProgressBar),
+            LineCap.Round
+            );
+    #endregion
 }
 
 public class IndeterminateBarDrawable : BindableObject, IDrawable
