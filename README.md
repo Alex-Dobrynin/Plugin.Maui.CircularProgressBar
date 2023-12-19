@@ -1,3 +1,5 @@
+###This repo is archived. The code was moved to https://github.com/MPowerKit/ProgressRing . Further work will bw done there
+
 # Plugin.Maui.CircularProgressBar
 
 Simple platform agnostic MAUI circular progress bar
