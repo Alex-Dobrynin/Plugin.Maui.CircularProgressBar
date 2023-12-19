@@ -1,4 +1,4 @@
-###This repo is archived. The code was moved to https://github.com/MPowerKit/ProgressRing . Further work will bw done there
+###This repo is archived. The code was moved to https://github.com/MPowerKit/ProgressRing . Further work will be done there
 
 # Plugin.Maui.CircularProgressBar
 
